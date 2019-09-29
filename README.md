@@ -1,1 +1,1 @@
-# bg--frontend-assignment
+# bg-frontend-assignment
