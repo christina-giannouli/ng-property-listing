@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.sass']
+    selector: 'app-login-form',
+    templateUrl: './login-form.component.html',
+    styleUrls: ['./login-form.component.sass'],
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
+    @Input() loginForm: FormGroup;
+    @Output() login: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+    constructor() {}
 
-  ngOnInit() {
-  }
+    /* returns true if the required validator in failing
+     * and triggers the corresponding error on UI */
+    isValidatorInvalid(controlName: string, error: string): boolean {
+        return (
+            this.loginForm.get(controlName).hasError(error) &&
+            this.loginForm.get(controlName).touched
+        );
+    }
 
+    // on valid form submit it emits the user object to the login container
+    onSubmit(): void {
+        // create a copy of the form model and assign it to user
+        const user: any = { ...this.loginForm.value };
+
+        if (this.loginForm.valid) {
+            this.login.emit(user);
+        }
+    }
 }
