@@ -9,4 +9,9 @@ export class TokenService {
         const token: string = localStorage.getItem(tokenKey);
         return token ? token : null;
     }
+    
+    /* set token to localStorage */
+    setToken(tokenKey: string, tokenValue: string): void {
+        localStorage.setItem(tokenKey, tokenValue);
+    }
 }
