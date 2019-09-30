@@ -1,9 +1,21 @@
-<div class="top-bar">
-    logo
+<div class="top-bar d-flex justify-content-between align-items-center">
+    <div>logo</div>
+    <div>user</div>
 </div>
 
-<div class="container-fluid mt-4">
+<div class="container-fluid units-wrapper">
+    <!-- Search input -->
     <div class="row">
+        <div class="col-2">
+            <input class="form-control"
+                   type="search"
+                   placeholder="Search"
+                   title="">
+        </div>
+    </div>
+    
+    <!-- Unit List -->
+    <div class="row mt-4">
         <div class="col-4">
             <app-unit></app-unit>
         </div>
