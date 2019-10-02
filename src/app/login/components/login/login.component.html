@@ -5,17 +5,23 @@
          class="alert alert-danger">
         <span *ngFor="let message of validationMessages">{{ message }}</span>
     </div>
-    
+
     <div *ngIf="unauthorizedMessage !== null && isAlertDisplayed"
          class="alert alert-danger">
-        <span>{{unauthorizedMessage}}</span>
+        <span>{{ unauthorizedMessage }}</span>
     </div>
 
     <!-- Login -->
     <div class="row d-flex justify-content-center align-items-stretch login-wrapper">
         <div class="col-sm-12 col-md-10 col-lg-6 align-self-center">
-            <h1 class="text-center app-logo">Blueground</h1>
-            
+            <div class="app-logo">
+                <img src="../../../../assets/thebluelogo.svg"
+                     class="img-fluid"
+                     alt="The Blue Logo"/>
+                <span class="text-secondary">on Mars</span>
+                <i class="fas fa-rocket text-secondary"></i>
+            </div>
+
             <div class="mt-5 mb-4">
                 <h4>Login</h4>
             </div>
