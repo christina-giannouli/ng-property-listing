@@ -6,18 +6,18 @@
 <div class="container-fluid units-wrapper">
     <!-- Search input -->
     <div class="row">
-        <div class="col-2">
+        <div class="col-sm-12 col-md-6 col-lg-3">
             <input class="form-control"
                    type="search"
-                   placeholder="Search"
-                   title="">
+                   placeholder="Search" />
         </div>
     </div>
-    
+
     <!-- Unit List -->
-    <div class="row mt-4">
-        <div class="col-4">
-            <app-unit></app-unit>
+    <div class="row mt-4 mb-5">
+        <div class="col-sm-12 col-md-6 col-lg-3 mb-4"
+             *ngFor="let unit of units">
+            <app-unit [unit]="unit"></app-unit>
         </div>
     </div>
 </div>
