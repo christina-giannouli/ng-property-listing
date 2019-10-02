@@ -1,10 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+
 body {
     font-family: 'Lato', sans-serif;
-    background-color: #EDF2F4;
+    background-color: #edf2f4;
+    color: #4f4f4f;
+    position: relative;
+
+    .container,
+    .container-fluid {
+        min-height: 100%;
+    }
 
     .container-fluid {
         padding-right: 20px;
         padding-left: 20px;
+    }
+
+    .alert {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        height: 80px;
+
+        &:nth-of-type(2n) {
+            top: 110px;
+        }
+    }
+
+    .btn {
+        min-width: 120px;
+
+        &:focus,
+        &:active {
+            outline: none;
+            box-shadow: none;
+        }
+    }
+
+    .btn-primary {
+        border: 2px solid #264292;
+        background-color: #264292;
+        color: white;
+        border-radius: 4px;
+        font-weight: 700;
+
+        &:hover,
+        &:focus,
+        &:active {
+            border-color: #20387c;
+            background-color: #20387c;
+        }
+
+        &:disabled,
+        .disabled {
+            border-color: #264292;
+            background-color: #264292;
+        }
     }
 }
