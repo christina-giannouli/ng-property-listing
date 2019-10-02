@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit {
     // form
     loginForm: FormGroup;
     // errors
-    errorMessages: string[];
+    validationMessages: string[] = [];
+    unauthorizedMessage: string = null;
+    isAlertDisplayed: boolean;
     // Form controls validation patterns
     emailValidationPattern: string = `^(([^<>()\\[\\]\\\\.,;:\\s@"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@"]+)*)|(".+"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))`;
 
@@ -51,7 +53,18 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['/units']);
             },
             (loginError: any) => {
-                this.errorMessages = loginError.error.errors.map((error) => error.messages);
+                this.isAlertDisplayed = true;
+                
+                loginError.error.code === 400
+                    ? (this.validationMessages = loginError.error.errors.map(
+                          (error) => error.messages,
+                      ))
+                    : [];
+
+                loginError.error.code === 401 ? (this.unauthorizedMessage = loginError.error.message) : null;
+    
+                // hide the alert after 15 seconds
+                setTimeout(() => (this.isAlertDisplayed = false), 5000);
             },
         );
     }
