@@ -1,12 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input } from '@angular/core';
+import { UnitData } from '../../interfaces/unit-data.interface';
 
 @Component({
-    selector: "app-unit",
-    templateUrl: "./unit.component.html",
-    styleUrls: ["./unit.component.scss"]
+    selector: 'app-unit',
+    templateUrl: './unit.component.html',
+    styleUrls: ['./unit.component.scss'],
 })
-export class UnitComponent implements OnInit {
-    constructor() {}
+export class UnitComponent {
+    @Input() unit: UnitData;
 
-    ngOnInit() {}
+    constructor() {
+    }
 }
