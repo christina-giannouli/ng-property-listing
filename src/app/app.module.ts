@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -19,8 +19,9 @@ import { LoginService } from './login/services/login.service';
 import { AuthService } from './core/auth/services/auth.service';
 import { LocalStorageService } from './core/services/localstorage.service';
 
-/* Guards */
+/* Auth */
 import { AuthGuard } from './core/auth/guards/auth.guard';
+import { AuthInterceptor } from './core/auth/interceptors/auth.interceptor';
 
 @NgModule({
     declarations: [AppComponent, LoginComponent, UnitsComponent, UnitComponent, LoginFormComponent],
@@ -37,7 +38,13 @@ import { AuthGuard } from './core/auth/guards/auth.guard';
             },
         }),
     ],
-    providers: [AuthGuard, AuthService, TokenService, LoginService],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+        AuthGuard,
+        AuthService,
+        LocalStorageService,
+        LoginService,
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
