@@ -9,6 +9,10 @@ import { UnitData } from '../../interfaces/unit-data.interface';
 export class UnitComponent {
     @Input() unit: UnitData;
 
-    constructor() {
+    constructor() {}
+
+    /* returns the image from the array with the specified size */
+    getPictureBySize(size: string): string {
+        return this.unit.pictures.find((img: string) => img.includes(size));
     }
 }
