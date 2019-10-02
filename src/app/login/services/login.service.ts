@@ -12,7 +12,7 @@ import { Authentication } from '../../core/interfaces/authentication.interface';
 export class LoginService {
     constructor(private http: HttpClient) {}
 
-    /** it posts the login user to the server and returns a jwt accessToken */
+    /** it posts the login user to the server and returns a jwt accessToken along with the user */
     login(user: LoginUser): Observable<Authentication> {
         return this.http.post<any>(`${environment.serverUrl}/auth/login`, user).pipe(
             map((authentication: Authentication) => {
