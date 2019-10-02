@@ -17,7 +17,7 @@ import { LoginFormComponent } from './login/components/login-form/login-form.com
 import { JwtOptionsService } from './core/services/jwt-options.service';
 import { LoginService } from './login/services/login.service';
 import { AuthService } from './core/auth/services/auth.service';
-import { TokenService } from './core/services/token.service';
+import { LocalStorageService } from './core/services/localstorage.service';
 
 /* Guards */
 import { AuthGuard } from './core/auth/guards/auth.guard';

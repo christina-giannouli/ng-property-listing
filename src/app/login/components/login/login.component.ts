@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TokenService } from '../../../core/services/token.service';
-import { Jwt } from '../../../core/interfaces/jwt.interface';
+import { LocalStorageService } from '../../../core/services/localstorage.service';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class LoginComponent implements OnInit {
     emailValidationPattern: string = `^(([^<>()\\[\\]\\\\.,;:\\s@"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@"]+)*)|(".+"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))`;
 
     constructor(
-        private tokenService: TokenService,
+        private localStorageService: LocalStorageService,
         private formBuilder: FormBuilder,
         private loginService: LoginService,
         private router: Router,
