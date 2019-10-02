@@ -22,6 +22,7 @@ import { LocalStorageService } from './core/services/localstorage.service';
 /* Auth */
 import { AuthGuard } from './core/auth/guards/auth.guard';
 import { AuthInterceptor } from './core/auth/interceptors/auth.interceptor';
+import { UnitsService } from './units/services/units.service';
 
 @NgModule({
     declarations: [AppComponent, LoginComponent, UnitsComponent, UnitComponent, LoginFormComponent],
@@ -44,6 +45,7 @@ import { AuthInterceptor } from './core/auth/interceptors/auth.interceptor';
         AuthService,
         LocalStorageService,
         LoginService,
+        UnitsService,
     ],
     bootstrap: [AppComponent],
 })
