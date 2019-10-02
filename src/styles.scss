@@ -61,4 +61,19 @@ body {
             background-color: #264292;
         }
     }
+    
+    .form-control {
+        &:hover,
+        &:focus {
+            box-shadow: none;
+            border: 1px solid #666;
+        }
+    }
+    
+    input[type='email'] {
+        position: relative;
+        &.ng-valid {
+            border-color: #00A651;
+        }
+    }
 }
