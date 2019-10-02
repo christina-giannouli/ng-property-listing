@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { LoginUser } from '../../interfaces/login-user.interface';
 
 @Component({
     selector: 'app-login-form',
@@ -8,7 +9,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class LoginFormComponent {
     @Input() loginForm: FormGroup;
-    @Output() login: EventEmitter<any> = new EventEmitter<any>();
+    @Output() login: EventEmitter<LoginUser> = new EventEmitter<LoginUser>();
 
     constructor() {}
 
@@ -24,7 +25,7 @@ export class LoginFormComponent {
     // on valid form submit it emits the user object to the login container
     onSubmit(): void {
         // create a copy of the form model and assign it to user
-        const user: any = { ...this.loginForm.value };
+        const user: LoginUser = { ...this.loginForm.value };
 
         if (this.loginForm.valid) {
             this.login.emit(user);
