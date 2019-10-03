@@ -12,6 +12,7 @@ import { UnitsComponent } from './units/components/units/units.component';
 import { UnitComponent } from './units/components/unit/unit.component';
 import { LoginComponent } from './login/components/login/login.component';
 import { LoginFormComponent } from './login/components/login-form/login-form.component';
+import { UnitDetailsComponent } from './units/components/unit-details/unit-details.component';
 
 /* Services */
 import { JwtOptionsService } from './core/services/jwt-options.service';
@@ -25,7 +26,14 @@ import { AuthInterceptor } from './core/auth/interceptors/auth.interceptor';
 import { UnitsService } from './units/services/units.service';
 
 @NgModule({
-    declarations: [AppComponent, LoginComponent, UnitsComponent, UnitComponent, LoginFormComponent],
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        UnitsComponent,
+        UnitComponent,
+        LoginFormComponent,
+        UnitDetailsComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,
