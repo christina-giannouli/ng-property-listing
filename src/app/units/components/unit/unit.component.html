@@ -4,14 +4,26 @@
          alt="unit picture" />
 
     <div class="card-body">
-        <h5 class="card-title">{{ unit.name }} - {{ unit.region }}</h5>
-        <p class="card-text">{{ unit.description }}</p>
-        <p class="card-text">{{ unit.cancellation }}</p>
-
-        <span>Price: {{ unit.price }} BTN</span>
+        <span id="region"
+              class="text-uppercase">
+            {{unit.region}}
+        </span>
+        <h4 class="card-title">
+            <a href=""
+               class="stretched-link text-reset text-decoration-none">
+                {{unit.name}}
+            </a>
+        </h4>
+        <p class="card-text text-truncate mb-4">{{unit.description}}</p>
+        <div id="cancellation"
+             class="float-right">
+            <span class="badge badge-danger text-uppercase">Cancellation</span>
+            <span>{{unit.cancellation}}</span>
+        </div>
     </div>
-
-    <div class="card-footer">
-        <small class="text-muted">{{ unit.rating }}</small>
+    
+    <div class="card-footer d-flex justify-content-between align-items-center">
+        <span id="price">{{unit.price}} BTN</span>
+        <span class="rating">3</span>
     </div>
 </div>
