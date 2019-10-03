@@ -8,6 +8,26 @@
     height: 65px;
     border-bottom: 1px solid #ddd;
     z-index: 2;
+
+    .app-logo {
+        width: 10rem;
+
+        .fas {
+            right: -28px;
+            top: -1px;
+            font-size: 3rem;
+        }
+    }
+
+    .user-avatar {
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #264292;
+            margin-right: 8px;
+        }
+    }
 }
 
 .units-wrapper {

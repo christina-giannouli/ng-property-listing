@@ -7,24 +7,11 @@
             
             .app-logo {
                 width: 45%;
-                position: relative;
-                
-                span {
-                    display: block;
-                    text-align: right;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    line-height: 1;
-                }
                 
                 .fas {
                     font-size: 5rem;
-                    position: absolute;
-                    z-index: -1;
                     right: -30px;
                     top: -22px;
-                    opacity: .25;
-                    
                 }
             }
         }

@@ -9,6 +9,24 @@ body {
     background-color: #edf2f4;
     color: #4f4f4f;
     position: relative;
+    
+    .app-logo {
+        position: relative;
+        
+        span {
+            display: block;
+            text-align: right;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        
+        .fas {
+            position: absolute;
+            z-index: -1;
+            opacity: .25;
+        }
+    }
 
     .container,
     .container-fluid {
