@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { UnitsComponent } from './units/components/units/units.component';
 import { LoginComponent } from './login/components/login/login.component';
 import { AuthGuard } from './core/auth/guards/auth.guard';
-import { UnitDetailsComponent } from './units/components/unit-details/unit-details.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,7 +13,6 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         runGuardsAndResolvers: 'always',
     },
-    { path: 'units/:id', component: UnitDetailsComponent, outlet: 'details' },
 ];
 
 @NgModule({
