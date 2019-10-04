@@ -1,3 +1,45 @@
-<p>
-  unit-details works!
-</p>
+<div class="card unit-details">
+    <img src="http://mars.theblueground.net/{{unitDetails.pictures[0]}}"
+         class="card-img-top img-fluid"
+         alt="unit picture" />
+
+    <div class="card-body">
+        <span id="region"
+              class="text-uppercase">
+            {{unitDetails.region}}
+        </span>
+        <div class="mb-4">
+            <h5 class="card-title">
+                {{unitDetails.name}}
+            </h5>
+            <span id="price"> {{unitDetails.price}} BTC</span>
+        </div>
+
+        <span id="rating"
+              class="mt-4">
+            <i class="fas fa-star"></i>
+        </span>
+
+        <p class="card-text mb-4">{{unitDetails.description}}</p>
+
+        <div id="amenities"
+             class="mb-4">
+            <h6>Amenities</h6>
+            <div *ngFor="let amenity of unitDetails.amenities">
+                {{amenity}}
+            </div>
+        </div>
+        
+        <div id="availability">
+            <ul>
+                <li *ngFor="let year of unitDetails.availability">{{year}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <button class="btn btn-primary float-right">
+            Book
+        </button>
+    </div>
+</div>
