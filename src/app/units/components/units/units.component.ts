@@ -87,4 +87,10 @@ export class UnitsComponent implements OnInit {
             (bookingError: any) => console.error(bookingError),
         );
     }
+
+    /* grabs the event emitted from the child component
+     * and updates the isUnitDetailsDrawerOpen  */
+    onUnitDetailsDrawerClosed(event: boolean): void {
+        event ? (this.isUnitDetailsDrawerOpen = false) : true;
+    }
 }

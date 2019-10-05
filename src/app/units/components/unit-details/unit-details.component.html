@@ -1,4 +1,10 @@
 <div class="card unit-details">
+    
+    <span id="close-drawer"
+          (click)="onDrawerClose($event)">
+        <i class="fas fa-times"></i>
+    </span>
+    
     <img src="http://mars.theblueground.net/{{unitDetails.pictures[0]}}"
          class="card-img-top img-fluid"
          alt="unit picture" />

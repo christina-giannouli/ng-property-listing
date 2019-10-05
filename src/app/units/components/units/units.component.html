@@ -39,6 +39,7 @@
      [ngClass]="isUnitDetailsDrawerOpen ? 'open' : ''"
      *ngIf="isUnitDetailsContentLoaded">
     <app-unit-details [unitDetails]="unitDetails"
-                      (bookedUnit)="onUnitBooked($event)">
+                      (bookedUnit)="onUnitBooked($event)"
+                      (drawerClosed)="onUnitDetailsDrawerClosed($event)">
     </app-unit-details>
 </div>
