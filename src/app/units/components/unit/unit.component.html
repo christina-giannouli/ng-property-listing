@@ -2,7 +2,13 @@
     <img src="http://mars.theblueground.net{{getPictureBySize('800')}}"
          class="card-img-top img-fluid"
          alt="unit picture" />
-
+    
+    <div class="booked-indicator"
+         *ngIf="unit.id === bookedUnit?.unitId">
+        You just booked it! Your booking reference:
+        {{bookedUnit.reference}}
+    </div>
+    
     <div class="card-body">
         <span id="region"
               class="text-uppercase">
