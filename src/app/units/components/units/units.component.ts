@@ -60,7 +60,7 @@ export class UnitsComponent implements OnInit {
             };
 
             // once unitDetails is no longer undefined
-            // it turns to true to display the data n UI
+            // it turns to true to display the data on UI
             this.isUnitDetailsContentLoaded = true;
         });
     }
