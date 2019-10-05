@@ -76,10 +76,15 @@ export class UnitsComponent implements OnInit {
         this.getUnitDetails(id);
     }
 
+    /* gets the specified unit form child event to call the service,
+     * updates bookedUnit, and isUnitDetailsDrawerOpen */
     onUnitBooked(unit: BookedUnit): void {
-        this.unitsService.bookUnit(unit).subscribe((booking: BookedUnit) => {
-            this.bookedUnit = booking;
-            this.isUnitDetailsDrawerOpen = false;
-        });
+        this.unitsService.bookUnit(unit).subscribe(
+            (booking: BookedUnit) => {
+                this.bookedUnit = booking;
+                this.isUnitDetailsDrawerOpen = false;
+            },
+            (bookingError: any) => console.error(bookingError),
+        );
     }
 }
