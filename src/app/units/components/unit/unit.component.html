@@ -25,9 +25,13 @@
     
     <div class="card-footer d-flex justify-content-between align-items-center">
         <span id="price">{{unit.price}} BTC</span>
-        <span class="rating">
-            {{unit.rating}}
-            <i class="fas fa-star"></i>
+        
+        <span id="rating">
+            <span *ngFor="let star of starsRating;">
+                <i class="fas fa-star"
+                   [ngClass]="star ? 'filled' : ''">
+                </i>
+            </span>
         </span>
     </div>
 </div>

@@ -66,5 +66,16 @@
             font-style: italic;
             font-weight: 700;
         }
+
+        #rating {
+            .fas {
+                margin-left: 5px;
+                opacity: 0.25;
+                
+                &.filled {
+                    opacity: 1;
+                }
+            }
+        }
     }
 }
