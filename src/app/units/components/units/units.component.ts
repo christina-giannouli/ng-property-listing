@@ -52,7 +52,12 @@ export class UnitsComponent implements OnInit {
     getUnitDetails(unitId: string): void {
         this.unitsService.getUnitDetails(unitId).subscribe((unitDetails: UnitDetails) => {
             this.unitDetails = unitDetails;
-            // this.unitDetails.description = this.unitDetails.description.replace(/<[^>]*>/g, '');
+
+            // trims 'br' tags and updates description value
+            this.unitDetails = {
+                ...this.unitDetails,
+                description: this.unitDetails.description.replace(/<[^>]*>/g, ''),
+            };
 
             // once unitDetails is no longer undefined
             // it turns to true to display the data n UI
