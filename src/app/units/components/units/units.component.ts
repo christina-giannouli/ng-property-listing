@@ -22,7 +22,7 @@ export class UnitsComponent implements OnInit {
     user: User;
 
     isUnitDetailsDrawerOpen: boolean = false;
-    // prevents console errors due to undefined unitDetails object properties
+    // prevents console errors caused by initially undefined unitDetails object properties
     isUnitDetailsContentLoaded: boolean = false;
 
     constructor(
