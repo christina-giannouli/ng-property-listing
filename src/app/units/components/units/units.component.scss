@@ -34,3 +34,18 @@
     margin-top: 65px;
     padding-top: 40px;
 }
+
+.unit-details-wrapper {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    max-height: 100%;
+    transition: right ease-in-out 1s;
+    overflow-y: scroll;
+    z-index: 10;
+
+    &.open {
+        right: 0;
+    }
+}

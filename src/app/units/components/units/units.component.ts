@@ -5,6 +5,7 @@ import { UnitData } from '../../interfaces/unit-data.interface';
 import { LocalStorageService } from '../../../core/services/localstorage.service';
 import { User } from '../../../core/interfaces/user.interface';
 import { UnitDetails } from '../../interfaces/unit-details.interface';
+import { BookedUnit } from '../../interfaces/booked-unit.interface';
 
 @Component({
     selector: 'app-units',
@@ -14,12 +15,13 @@ import { UnitDetails } from '../../interfaces/unit-details.interface';
 export class UnitsComponent implements OnInit {
     units: UnitData[];
     unitDetails: UnitDetails;
+    bookedUnit: BookedUnit;
 
     totalCount: number;
 
     user: User;
 
-    areUnitDetailsOpen: boolean = false;
+    isUnitDetailsDrawerOpen: boolean = false;
     // prevents console errors due to undefined unitDetails object properties
     isUnitDetailsContentLoaded: boolean = false;
 
@@ -65,7 +67,14 @@ export class UnitsComponent implements OnInit {
     }
 
     openUnitDetails(id: string): void {
-        this.areUnitDetailsOpen = true;
+        this.isUnitDetailsDrawerOpen = true;
         this.getUnitDetails(id);
+    }
+
+    onUnitBooked(unit: BookedUnit): void {
+        this.unitsService.bookUnit(unit).subscribe((booking: BookedUnit) => {
+            this.bookedUnit = booking;
+            this.isUnitDetailsDrawerOpen = false;
+        });
     }
 }
