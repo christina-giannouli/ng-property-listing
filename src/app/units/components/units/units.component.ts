@@ -13,11 +13,12 @@ import { BookedUnit } from '../../interfaces/booked-unit.interface';
     styleUrls: ['./units.component.scss'],
 })
 export class UnitsComponent implements OnInit {
-    units: UnitData[];
+    units: UnitData[] = [];
     unitDetails: UnitDetails;
     bookedUnit: BookedUnit;
 
-    totalCount: number;
+    pageNumber: number = 1;
+    itemsPerPage: number = 10;
 
     user: User;
 
@@ -37,10 +38,9 @@ export class UnitsComponent implements OnInit {
 
     /* get the list of units from the server */
     getUnits(): void {
-        this.unitsService.getUnitList().subscribe(
+        this.unitsService.getUnitList(this.pageNumber, this.itemsPerPage).subscribe(
             (unit: Unit) => {
-                this.units = unit.data;
-                this.totalCount = unit.meta.totalCount;
+                this.units = this.units.concat(unit.data);
             },
             (error: any) => {
                 console.error(error);
@@ -92,5 +92,12 @@ export class UnitsComponent implements OnInit {
      * and updates the isUnitDetailsDrawerOpen  */
     onUnitDetailsDrawerClosed(event: boolean): void {
         event ? (this.isUnitDetailsDrawerOpen = false) : true;
+    }
+
+    /*  each time list reaches the end of the window it increases the pageNumber by one
+     * and fetches the next group in units list */
+    onScroll(): void {
+        this.pageNumber = this.pageNumber ? ++this.pageNumber : 1;
+        this.getUnits();
     }
 }

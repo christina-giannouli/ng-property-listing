@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { UnitsService } from './units/services/units.service';
         ReactiveFormsModule,
         FormsModule,
         HttpClientModule,
+        InfiniteScrollModule,
         JwtModule.forRoot({
             jwtOptionsProvider: {
                 provide: JWT_OPTIONS,
