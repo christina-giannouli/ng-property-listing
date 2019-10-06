@@ -87,15 +87,19 @@ export class UnitsComponent implements OnInit {
             (booking: BookedUnit) => {
                 this.bookedUnit = booking;
                 this.isUnitDetailsDrawerOpen = false;
+                this.isUnitDetailsContentLoaded = false;
             },
             (bookingError: any) => console.error(bookingError),
         );
     }
 
     /* grabs the event emitted from the child component
-     * and updates the isUnitDetailsDrawerOpen  */
+     * and updates the isUnitDetailsDrawerOpen and isUnitDetailsContentLoaded */
     onUnitDetailsDrawerClosed(event: boolean): void {
-        event ? (this.isUnitDetailsDrawerOpen = false) : true;
+        if (event) {
+            this.isUnitDetailsDrawerOpen = false;
+            this.isUnitDetailsContentLoaded = false;
+        }
     }
 
     /*  each time list reaches the end of the window it increases the pageNumber by one

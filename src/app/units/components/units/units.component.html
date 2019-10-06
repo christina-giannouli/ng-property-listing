@@ -42,8 +42,8 @@
 </div>
 
 <div class="unit-details-wrapper"
-     [ngClass]="isUnitDetailsDrawerOpen ? 'open' : ''"
-     *ngIf="isUnitDetailsContentLoaded">
+     [ngClass]="isUnitDetailsDrawerOpen && isUnitDetailsContentLoaded ? 'open' : ''"
+     *ngIf="isUnitDetailsContentLoaded && isUnitDetailsDrawerOpen">
     <app-unit-details [unitDetails]="unitDetails"
                       (bookedUnit)="onUnitBooked($event)"
                       (drawerClosed)="onUnitDetailsDrawerClosed($event)">
