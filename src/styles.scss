@@ -9,10 +9,14 @@ body {
     background-color: #edf2f4;
     color: #4f4f4f;
     position: relative;
-    
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
     .app-logo {
         position: relative;
-        
+
         span {
             display: block;
             text-align: right;
@@ -20,11 +24,11 @@ body {
             text-transform: uppercase;
             line-height: 1;
         }
-        
+
         .fas {
             position: absolute;
             z-index: -1;
-            opacity: .25;
+            opacity: 0.25;
         }
     }
 
@@ -79,7 +83,7 @@ body {
             background-color: #264292;
         }
     }
-    
+
     .form-control {
         &:hover,
         &:focus {
@@ -87,11 +91,11 @@ body {
             border: 1px solid #666;
         }
     }
-    
+
     input[type='email'] {
         position: relative;
         &.ng-valid {
-            border-color: #00A651;
+            border-color: #00a651;
         }
     }
 }
