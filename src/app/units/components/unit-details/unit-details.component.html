@@ -25,7 +25,11 @@
             <span id="price"> {{unitDetails.price}} BTC</span>
     
             <span id="rating">
-                <i class="fas fa-star"></i>
+                <span *ngFor="let star of starsRating;">
+                    <i class="fas fa-star"
+                       [ngClass]="star ? 'filled' : ''">
+                    </i>
+                </span>
             </span>
         </div>
 
