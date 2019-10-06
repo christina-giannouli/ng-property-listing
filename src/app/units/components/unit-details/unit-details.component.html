@@ -52,7 +52,7 @@
             <span class="d-block mb-3">Availability</span>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="form-check form-check-inline"
-                     *ngFor="let year of unitDetails.availability; let i = index">
+                     *ngFor="let year of unitDetails.availability">
                     <label for="{{year}}"
                            [ngClass]="selectedYear === year ? 'selected': ''"
                            class="form-check-label cursor-pointer">
