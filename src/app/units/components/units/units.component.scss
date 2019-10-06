@@ -37,9 +37,10 @@
 
 .unit-details-wrapper {
     position: fixed;
-    top: 0;
+    top: 65px;
     right: -100%;
     width: 50%;
+    height: calc(100% - 65px);
     max-height: 100%;
     transition: right ease-in-out 1s;
     overflow-y: scroll;

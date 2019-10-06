@@ -1,6 +1,7 @@
-<div class="card unit-details">
+<div class="card">
     
     <span id="close-drawer"
+          class="cursor-pointer"
           (click)="onDrawerClose($event)">
         <i class="fas fa-times"></i>
     </span>
@@ -14,47 +15,58 @@
               class="text-uppercase">
             {{unitDetails.region}}
         </span>
-        <div class="mb-4">
+        <div class="mb-3">
             <h5 class="card-title">
                 {{unitDetails.name}}
             </h5>
-            <span id="price"> {{unitDetails.price}} BTC</span>
         </div>
-
-        <span id="rating"
-              class="mt-4">
-            <i class="fas fa-star"></i>
-        </span>
+    
+        <div class="d-flex justify-content-between align-items-center mb-3 price-rating-wrapper">
+            <span id="price"> {{unitDetails.price}} BTC</span>
+    
+            <span id="rating">
+                <i class="fas fa-star"></i>
+            </span>
+        </div>
 
         <p class="card-text mb-4">{{unitDetails.description}}</p>
     
         <div id="cancellation"
-             class="float-right">
+             class="float-right mb-4">
             <span class="badge badge-danger text-uppercase">Cancellation</span>
             <span>{{unitDetails.cancellation}}</span>
         </div>
 
         <div id="amenities"
              class="mb-4">
-            <h6>Amenities</h6>
-            <ul *ngFor="let amenity of unitDetails.amenities"
-                class="list-unstyled">
-                <li>{{amenity}}</li>
+            <span class="d-block mb-3">Amenities</span>
+            <ul class="list-unstyled row">
+                <li *ngFor="let amenity of unitDetails.amenities" class="col-4 mb-2">
+                    <i class="fas fa-star text-secondary mr-1"></i>
+                    <span>{{amenity}}</span>
+                </li>
             </ul>
         </div>
         
         <div id="availability">
-            <div class="form-check form-check-inline"
-                 *ngFor="let year of unitDetails.availability">
-                <label for="{{year}}"
-                       class="form-check-label">{{year}}</label>
-                <input type="radio"
-                       [(ngModel)]="selectedYear"
-                       [name]="selectedYear"
-                       [value]="year"
-                       class="form-check-input"
-                       id="{{year}}">
+            <span class="d-block mb-3">Availability</span>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="form-check form-check-inline"
+                     *ngFor="let year of unitDetails.availability; let i = index">
+                    <label for="{{year}}"
+                           [ngClass]="selectedYear === year ? 'selected': ''"
+                           class="form-check-label cursor-pointer">
+                        {{year}}
+                    </label>
+                    <input type="radio"
+                           [(ngModel)]="selectedYear"
+                           [name]="selectedYear"
+                           [value]="year"
+                           class="form-check-input"
+                           id="{{year}}">
+                </div>
             </div>
+            
         </div>
     </div>
 
