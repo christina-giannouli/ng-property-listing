@@ -5,7 +5,7 @@ import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { AuthInterceptor } from './auth.interceptor';
 import { LocalStorageService } from '../../services/localstorage.service';
 
-fdescribe('Interceptor: AuthInterceptor', () => {
+describe('Interceptor: AuthInterceptor', () => {
     let httpMock: HttpTestingController;
     let http: HttpClient;
     let injector: TestBed;
