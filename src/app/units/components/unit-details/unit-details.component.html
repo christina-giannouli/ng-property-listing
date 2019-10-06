@@ -6,7 +6,7 @@
         <i class="fas fa-times"></i>
     </span>
     
-    <img src="http://mars.theblueground.net/{{unitDetails.pictures[0]}}"
+    <img src="http://mars.theblueground.net/{{getPictureBySize('800')}}"
          class="card-img-top img-fluid"
          alt="unit picture" />
 
@@ -46,7 +46,7 @@
             <span class="d-block mb-3">Amenities</span>
             <ul class="list-unstyled row">
                 <li *ngFor="let amenity of unitDetails.amenities" class="col-4 mb-2">
-                    <i class="fas fa-star text-secondary mr-1"></i>
+                    <i class="fas fa-check text-secondary mr-1"></i>
                     <span>{{amenity}}</span>
                 </li>
             </ul>

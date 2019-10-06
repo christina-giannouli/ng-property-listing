@@ -37,6 +37,11 @@ export class UnitDetailsComponent implements OnInit {
             this.drawerClosed.emit(true);
         }
     }
+    
+    /* returns the image from the array with the specified size */
+    getPictureBySize(size: string): string {
+        return this.unitDetails.pictures.find((img: string) => img.includes(size));
+    }
 
     fillRatingStars(): void {
         for (let i = 0; i < 5; i++) {
