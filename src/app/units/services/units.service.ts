@@ -13,10 +13,15 @@ import { BookedUnit } from '../interfaces/booked-unit.interface';
 export class UnitsService {
     constructor(private http: HttpClient) {}
 
-    getUnitList(pageNumber: number = 1, itemsPerPage: number = 10): Observable<Unit> {
+    getUnitList(
+        pageNumber: number = 1,
+        itemsPerPage: number = 10,
+        query: string = '',
+    ): Observable<Unit> {
         const params = {
             page: pageNumber.toString(),
             perPage: itemsPerPage.toString(),
+            q: query,
         };
         return this.http.get<any>(`${environment.serverUrl}/units`, { params }).pipe(
             map((response: Unit) => {

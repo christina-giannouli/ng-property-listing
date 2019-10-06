@@ -20,6 +20,8 @@ export class UnitsComponent implements OnInit {
     pageNumber: number = 1;
     itemsPerPage: number = 10;
 
+    searchQuery: string;
+
     user: User;
 
     isUnitDetailsDrawerOpen: boolean = false;
@@ -38,14 +40,16 @@ export class UnitsComponent implements OnInit {
 
     /* get the list of units from the server */
     getUnits(): void {
-        this.unitsService.getUnitList(this.pageNumber, this.itemsPerPage).subscribe(
-            (unit: Unit) => {
-                this.units = this.units.concat(unit.data);
-            },
-            (error: any) => {
-                console.error(error);
-            },
-        );
+        this.unitsService
+            .getUnitList(this.pageNumber, this.itemsPerPage, this.searchQuery)
+            .subscribe(
+                (unit: Unit) => {
+                    this.units = this.units.concat(unit.data);
+                },
+                (error: any) => {
+                    console.error(error);
+                },
+            );
     }
 
     /* gets details for the unit with the specified ID */
@@ -98,6 +102,15 @@ export class UnitsComponent implements OnInit {
      * and fetches the next group in units list */
     onScroll(): void {
         this.pageNumber = this.pageNumber ? ++this.pageNumber : 1;
+        this.getUnits();
+    }
+
+    /* it gets the input value from the search box and update the searchQuery variable.
+     * it resets the pageNumber, clears and updates the unit list */
+    onSearchQueryUpdate(inputValue: string): void {
+        this.searchQuery = inputValue;
+        this.pageNumber = 1;
+        this.units = [];
         this.getUnits();
     }
 }
